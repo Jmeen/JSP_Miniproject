@@ -14,14 +14,15 @@ List<PhoneBookVO> list = (List<PhoneBookVO>) request.getAttribute("list");
 
 <body>
 	<h2>목록</h2>
-
-	<label>검색어   </label>
-	<input = type="text" name="search"	id="search" style="margin:0px">	
 	<form action="<%=request.getContextPath()%>/con" method="post"  >
-		<input type="hidden" name="a" value="search"> 
-		<input type="submit" VALUE="검색"style="margin:0px ">
+	<label>검색어   </label>
+	<input type="text" name="search"	id="search" style="margin:0px">	
+	<input type="hidden" name="a" value="search"> 
+	<input type="submit" VALUE="검색"style="margin:0px ">
+		<!-- 리셋 버튼  -->
+		<a href="<%=request.getContextPath()%>/con?a=reset"> >> Show All</a>
 	</form>
-	
+
 	<br>
 	<table border="1">
 			<thead>
