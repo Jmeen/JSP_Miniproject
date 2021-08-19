@@ -7,15 +7,21 @@
 <%
 //요청 객체에서 list 속성 받아오기
 List<PhoneBookVO> list = (List<PhoneBookVO>) request.getAttribute("list");
+String strsearch = String.valueOf(request.getAttribute("search"));
 %>
 
 <jsp:include page="/WEB-INF/views/header.jsp">
 	<jsp:param value="메인페이지" name="message" /></jsp:include>
 
 <body>
+	<%if (strsearch.isEmpty()){ %>
 	<h2>목록</h2>
+		<%} else { %>
+	<h2>목록 (검색어: <%=strsearch %>)</h2>
+		<%} %>
+		
 	<form action="<%=request.getContextPath()%>/con" method="post"  >
-	<label>검색어   </label>
+	<label>검색어 </label>
 	<input type="text" name="search"	id="search" style="margin:0px">	
 	<input type="hidden" name="a" value="search"> 
 	<input type="submit" VALUE="검색"style="margin:0px ">

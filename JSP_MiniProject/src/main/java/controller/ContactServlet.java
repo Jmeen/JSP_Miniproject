@@ -33,6 +33,7 @@ public class ContactServlet extends HttpServlet {
 			PhoneBookDAO dao = new PhoneBookDAOImpl();
 			List<PhoneBookVO> list = dao.getlist();
 			req.setAttribute("list", list);
+			req.setAttribute("search", "");
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
 			rd.forward(req, resp);
 		}
@@ -77,7 +78,9 @@ public class ContactServlet extends HttpServlet {
 			List<PhoneBookVO> list = dao.search(search);
 			req.setAttribute("list", list);
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
+			req.setAttribute("search", search);
 			rd.forward(req, resp);
+			
 		}
 		else if ("reset".equals(actionName)) {
 			String search = req.getParameter("search");
