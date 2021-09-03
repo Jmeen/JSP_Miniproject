@@ -15,74 +15,75 @@ boolean checkform = true;
 	<jsp:param value="메인페이지" name="message" /></jsp:include>
 
 <body>
-	<%
+	<div class="container">
+
+		<%
 	if (strsearch == "") {
 	%>
-	<h2>목록</h2>
-	<%
+		<h2>목록</h2>
+		<%
 	} else {
 	%>
-	<h2>
-		목록 (검색어:
-		<%=strsearch%>)
-	</h2>
-	<%
+		<h2>
+			목록 (검색어:
+			<%=strsearch%>)
+		</h2>
+		<%
 	}
 	%>
 
-	<form action="<%=request.getContextPath()%>/con" method="post">
-		<label>검색어 </label>
-		<input type="text" name="search" id="search" style="margin: 0px">
-		<input type="hidden" name="a" value="search">
-		<input type="submit" VALUE="검색" style="margin: 0px">
-		<!-- 리셋 버튼  -->
-		<a href="<%=request.getContextPath()%>/con?a=reset"> >> Show All</a>
-	</form>
+		<form action="<%=request.getContextPath()%>/con" method="post">
+			<label>검색어 </label>
+			<input type="text" name="search" id="search" style="margin: 0px">
+			<input type="hidden" name="a" value="search">
+			<input type="submit" VALUE="검색" style="margin: 0px">
+			<!-- 리셋 버튼  -->
+			<a href="<%=request.getContextPath()%>/con?a=reset"> >> Show All</a>
+		</form>
 
-	<br>
-	<table border="1">
-		<thead>
-			<tr bgcolor="lightGrey">
-				<th width="100" align="center">이름</th>
-				<th width="150" align="center">휴대전화</th>
-				<th width="150" align="center">집전화</th>
-				<th width="100" align="center">도구</th>
-			</tr>
-		</thead>
-		<%
+		<br>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col" align="center">이름</th>
+					<th scope="col" align="center">휴대전화</th>
+					<th scope="col" align="center">집전화</th>
+					<th scope="col" align="center">도구</th>
+				</tr>
+			</thead>
+			<%
 		for (PhoneBookVO vo : list) {
 		%>
-		<tbody>
-			<tr>
-				<td align="center"><%=vo.getName()%></td>
-				<td align="center"><%=vo.getHp()%></td>
-				<td align="center"><%=vo.getTel()%></td>
-				<td width="50" align="center">
-					<form action="<%=request.getContextPath()%>/con" method="post">
-						<input type="hidden" name="a" value="delete">
-						<input type="hidden" name="id" value="<%=vo.getId()%>" />
-						<button type="submit" class="btn btn-secondary btn-sm">삭제</button>
+			<tbody>
+				<tr>
+					<td scope="row" align="center"><%=vo.getName()%></td>
+					<td align="center"><%=vo.getHp()%></td>
+					<td align="center"><%=vo.getTel()%></td>
+					<td align="center">
+						<form action="<%=request.getContextPath()%>/con" method="post">
+							<input type="hidden" name="a" value="delete">
+							<input type="hidden" name="id" value="<%=vo.getId()%>" />
+							<button type="submit" class="btn btn-secondary btn-sm">삭제</button>
 
-					</form>
-				</td>
-			</tr>
-		</tbody>
-		<%
+						</form>
+					</td>
+				</tr>
+			</tbody>
+			<%
 		}
 		%>
-	</table>
-	<br />
+		</table>
 
 
-	<button id="signbtn" class="btn btn-primary" data-toggle="modal" data-target="#loginDialog">Sign in</button>
+		<button id="signbtn" class="btn btn-primary" data-toggle="modal" data-target="#loginDialog">Sign in</button>
 
-	<jsp:include page="/WEB-INF/views/modal.jsp"/>
-	
+		<jsp:include page="/WEB-INF/views/modal.jsp" />
 
-	<!--  
+
+		<!--  
 	<p>
 		<a href="<%=request.getContextPath()%>/con?a=insert">새 주소 추가</a>
 	</p>-->
-
+	</div>
 </body>
 </html>
