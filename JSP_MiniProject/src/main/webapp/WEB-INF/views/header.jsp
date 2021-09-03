@@ -19,7 +19,7 @@
 		
 		// 이름 검증
 		let userid = form.name.value.trim();
-		if (userid.length < 1 ||  userid.length > 10) {
+		if (userid.length < 2 ||  userid.length > 10) {
           //  검증 실패
           alert("이름을 확인해주세요.");
           form.name.focus(); //  포커스 부여
@@ -50,11 +50,18 @@ div h5 {
 	font-family: 맑은고딕, 굴림체, sans-serif;
 	font-weight: 1.5em;
 }
+
+body h1, h2 {
+	font-family: serif;
+	font-weight: bold;
+	font-style: italic;
+}
 </style>
 
 </head>
 <body>
-	<h1>주소록 Servlet</h1>
+
+	<h1>Contact Servlet</h1>
 
 </body>
 </html>
