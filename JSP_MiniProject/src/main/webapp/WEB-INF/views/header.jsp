@@ -19,15 +19,15 @@
 		
 		// 이름 검증
 		let userid = form.name.value.trim();
-		if (userid.length < 4 ||  userid.length > 10) {
+		if (userid.length < 1 ||  userid.length > 10) {
           //  검증 실패
-          alert("사용자 아이디는 4자 이상, 10자 이하로 해 주세요");
+          alert("이름을 확인해주세요.");
           form.name.focus(); //  포커스 부여
         return false;
         }
 		
 		let userhp = form.hp.value.trim();
-		if (userhp.length < 4 ||  userhp.length > 10) {
+		if (userhp.length < 4 ||  userhp.length > 13) {
           //  검증 실패
           alert("핸드폰 번호를 정확히 입력해주세요.");
           form.hp.focus(); //  포커스 부여
@@ -35,7 +35,7 @@
         }
 		
 		let usertel = form.tel.value.trim();
-		if (usertel.length < 4 ||  usertel.length > 10) {
+		if (usertel.length < 4 ||  usertel.length > 13) {
           //  검증 실패
           alert("전화번호를 정확히 입력해주세요.");
           form.tel.focus(); //  포커스 부여
